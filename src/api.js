@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://wedsign-back-production.up.railway.app';
 
 export async function getInvitations() {
   const response = await fetch(`${API_URL}/invitations`);
