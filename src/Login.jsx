@@ -5,8 +5,8 @@ import { Flex, Container, Input, Heading, Button, Radio } from '@chakra-ui/react
 import Header from './Header';
 
 const Login = () => {
-  const [correo, setCorreo] = useState('');
-  const [contraseña, setContraseña] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -25,14 +25,14 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       
-      const correoValido = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(correo);
-      if (!correoValido) {
+      const validEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email);
+      if (!validEmail) {
         setError('Please enter a valid email address');
         return;
       }
 
-      const usuario = await login(correo, contraseña);
-      localStorage.setItem('usuario', JSON.stringify({ ...usuario }));
+      const user = await login(email, password);
+      localStorage.setItem('user', JSON.stringify({ ...user }));
       navigate(`/`)
     } catch (error) {
       setError('Incorrect email or password');
@@ -61,15 +61,15 @@ const Login = () => {
         <Input
           type='email'
           placeholder='Email'
-          value={correo}
-          onChange={(e) => setCorreo(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           style={{ borderRadius: '8px', border: '1px solid #C7CCD0', width: '306px' }}
         />
         <Input
           type='password'
           placeholder='Password'
-          value={contraseña}
-          onChange={(e) => setContraseña(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           style={{ borderRadius: '8px', border: '1px solid #C7CCD0', width: '306px' }}
         />
         <Button

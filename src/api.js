@@ -1,39 +1,39 @@
 const API_URL = 'http://localhost:3001';
 
-export async function getInvitaciones() {
-  const response = await fetch(`${API_URL}/invitaciones`);
+export async function getInvitations() {
+  const response = await fetch(`${API_URL}/invitations`);
   return await response.json();
 }
 
-export async function getInvitacion(id) {
-  const response = await fetch(`${API_URL}/invitaciones/${id}`);
+export async function getInvitation(id) {
+  const response = await fetch(`${API_URL}/invitations/${id}`);
   return await response.json();
 }
 
-export async function crearInvitacion(invitacion) {
-  const response = await fetch(`${API_URL}/invitaciones`, {
+export async function createInvitation(invitation) {
+  const response = await fetch(`${API_URL}/invitations`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(invitacion),
+    body: JSON.stringify(invitation),
   });
   return await response.json();
 }
 
-export async function editarInvitacion(id, invitacionActualizada) {
-  const response = await fetch(`${API_URL}/invitaciones/${id}`, {
+export async function editInvitation(id, updatedInvitation) {
+  const response = await fetch(`${API_URL}/invitations/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(invitacionActualizada),
+    body: JSON.stringify(updatedInvitation),
   });
   return await response.json();
 }
 
-export async function eliminarInvitacion(id) {
-  const response = await fetch(`${API_URL}/invitaciones/${id}`, {
+export async function deleteInvitation(id) {
+  const response = await fetch(`${API_URL}/invitations/${id}`, {
     method: 'DELETE',
   });
   return await response.json();
@@ -41,15 +41,15 @@ export async function eliminarInvitacion(id) {
 
 
 
-// Usuarios
+// Users
 
-export async function login(correo, contraseña) {
-  const response = await fetch(`${API_URL}/login/buscar`, {
+export async function login(email, password) {
+  const response = await fetch(`${API_URL}/login/search`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ correo, contraseña }),
+    body: JSON.stringify({ email, password }),
   });
   if (response.ok) {
     return await response.json();
@@ -59,29 +59,29 @@ export async function login(correo, contraseña) {
   }
 }
 
-export async function crearUsuario(usuario) {
+export async function createUser(user) {
   const response = await fetch(`${API_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(usuario),
+    body: JSON.stringify(user),
   });
   return await response.json();
 }
 
-export async function actualizarUsuario(id, usuarioActualizado) {
+export async function updateUser(id, updatedUser) {
   const response = await fetch(`${API_URL}/login/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(usuarioActualizado),
+    body: JSON.stringify(updatedUser),
   });
   return await response.json();
 }
 
-export async function eliminarUsuario(id) {
+export async function deleteUser(id) {
   const response = await fetch(`${API_URL}/login/${id}`, {
     method: 'DELETE',
   });

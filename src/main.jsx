@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login.jsx';
-import Registro from './Registro.jsx'
+import SignUp from './SignUp.jsx'
 import NotFound from './NotFound.jsx';
 
 
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Registro/>} />
+          <Route path="/signUp" element={<SignUp/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
