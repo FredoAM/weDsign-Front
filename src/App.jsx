@@ -280,7 +280,7 @@ return (
                  <FormLabel htmlFor="numberOfGuests" style={{'color':'#B69F97','fontSize':'14px', 'lineHeight':'16.6px', 'fontFamily':'Roboto', 'fontWeight':'400'}}>Number of Guests</FormLabel>
                  <Text mb={'10px'} style={{'borderRadius':'8px','border':'1px solid #C7CCD0', 'padding':'7px', width : small ? '322px' : '300px'}}>{invitation.numberOfGuests}</Text>
                  <Flex gap={'15px'}>
-                   <Button  onClick={() => writeClipboardText(`http://localhost:5174/confirmacion/${invitation.id}`)} backgroundColor={'#B69F97'} style={{'color':'#FFFFFF','fontWeight':'300','fontFamily':'Roboto','fontSize':'20px','lineHeight':'30px'}} _hover={{opacity:'0.5'}}> {medium ? 'Copy link' : 'Copy'}</Button>
+                   <Button  onClick={() => writeClipboardText(`https://wedsign-invitaciones-production.up.railway.app/confirm/${invitation.id}`)} backgroundColor={'#B69F97'} style={{'color':'#FFFFFF','fontWeight':'300','fontFamily':'Roboto','fontSize':'20px','lineHeight':'30px'}} _hover={{opacity:'0.5'}}> {medium ? 'Copy link' : 'Copy'}</Button>
                    <Button onClick={() => handleEdit(invitation)} backgroundColor={'#B69F97'} style={{'color':'#FFFFFF','fontWeight':'300','fontFamily':'Roboto','fontSize':'20px','lineHeight':'30px'}} _hover={{opacity:'0.5'}}>Edit</Button>
                    <Button onClick={() => handleDelete(invitation.id)}  backgroundColor={'#B69F97'} style={{'color':'#FFFFFF','fontWeight':'300','fontFamily':'Roboto','fontSize':'20px','lineHeight':'30px'}} _hover={{opacity:'0.5'}}>Delete</Button>
                  </Flex>
